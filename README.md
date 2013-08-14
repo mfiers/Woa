@@ -4,13 +4,12 @@ Woa - A web interface for Moa!
 
     git clone git@github.com:mfiers/Woa.git
 
-## Download bootstrap
+## Download javascript dependencies
 
 	cd Woa
 	sh ./util/get_jslibs.sh
 
-This script will download the correct version of bootstrap and unpack it in the correct location
-
+Note - submodules would have been more elegant, but then you need node.js and a few other tools - found that too much. So, now this script downloads all dependencies.
 
 ## Installation
 
