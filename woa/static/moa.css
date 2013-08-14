@@ -8,11 +8,24 @@ body {
 }
 
 .dataTables_paginate {
-    margin-top: 0px;
+    margin-top: 0;
 }
 
-.dtcust {
-    align: right;
+#sidebarheader {
+    position: absolute;
+    top: 80px;
+    right: 100%;
+    white-space: nowrap;
+    -webkit-transform: rotate(270deg);
+    -webkit-transform-origin: right top;
+    -moz-transform: rotate(270deg);
+    -moz-transform-origin: right top;
+    -ms-transform: rotate(270deg);
+    -ms-transform-origin: right top;
+    -o-transform: rotate(270deg);
+    -o-transform-origin: right top;
+    transform: rotate(270deg);
+    transform-origin: right top;
 }
 /*pre {
     display: block;

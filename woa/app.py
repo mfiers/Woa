@@ -59,6 +59,7 @@ def woa_index(pth):
     data['localurl'] = pth.rstrip('/')
     data['crumbs'] = crumbs
     data['base_job'] = sysConf.job
+    data['sysConf'] = sysConf
     data['base_path'] = sysConf.job.wd.rstrip('/')
 
     if data['localurl'] == '.':
@@ -133,8 +134,6 @@ def _index(data):
                      if os.path.isfile(os.path.join(fullpath, f))]
     data['dirs'] = [f for f in data['allfiles']
                      if os.path.isdir(os.path.join(fullpath, f))]
-
-
     return render_template('index.html', **data)
 
 @woaOnlyWithMoaJob
@@ -145,6 +144,8 @@ def _parameters(data):
 @woaOnlyWithMoaJob
 @woaFunc('readme')
 def _readme(data):
+    data['readme'] = sysConf.api.get_readme(data['job'], format='html')
+    print data['readme']
     return render_template('readme.html', **data)
 
 

@@ -1,15 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <title>{% block title %}Moa {{ fullpath }}{% endblock %}</title>
 
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link href="/static/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+<!--<link href="/static/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">-->
+<link href="/static/bootstrap-switch/stylesheets/bootstrap-switch.css" rel="stylesheet" media="screen">
+
 <link href="/static/moa.css" rel="stylesheet" media="screen">
 
 <script src="/static/jquery/jquery-1.10.2.min.js"></script>
 <script src="/static/bootstrap/js/bootstrap.js"></script>
+<script src="/static/bootstrap-switch/js/bootstrap-switch.js"></script>
 <script src="/static/datatables/js/jquery.dataTables.js"></script>
 <script src="/static/DT_bootstrap.js"></script>
 <script src="/static/moa.js"></script>
@@ -64,10 +68,17 @@
     </ul>
 
 
-<div class="container">
-{% block body %}
-	<p>Lorem ipsum enzovoort</p>
-{% endblock %}
+<div class="row">
+  <div class="span1">
+    <div id="sidebarheader">
+    <h3 class="text-warning">{%- block header %}TITLE{% endblock -%}</h3>
+    </div>
+  </div>
+  <div class="container span11">
+  {% block body %}
+	 <p>Lorem ipsum enzovoort</p>
+  {% endblock %}
+  </div>
 </div>
 
 </body>

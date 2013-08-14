@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
+{% block header %}Readme{% endblock %}
 
 {% block body %}
-<h2>README</h2>
- 
-{{ README }}
+
+{{ readme|safe }}
 
 {% endblock body %}
