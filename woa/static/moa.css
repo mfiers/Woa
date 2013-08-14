@@ -1,0 +1,86 @@
+
+body {
+    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
+.breadcrumb {
+    margin-top: -20px; /*make it align to the header bar*/
+}
+
+.dataTables_paginate {
+    margin-top: 0px;
+}
+
+.dtcust {
+    align: right;
+}
+/*pre {
+    display: block;
+    unicode-bidi: embed;
+    font-family: monospace;
+    white-space: pre;
+}
+
+#wrapper {
+    margin-left:auto;
+    margin-right:auto;
+    width:90%;
+    min-width: 600px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+#contentOuter {
+    float: left;
+    width: 100%;
+}
+
+#content {
+    background: #FFFFFF;
+}
+
+.crumb {
+    heigth: 30px;
+    margin-left: 5px;
+    background: #bbbbbb;
+    border-radius: 4px;
+    padding: 2px;
+
+}
+
+.moaCommandActive {
+    font-weight: bold;
+}
+
+#header {
+    float: left;
+    height: 30px;
+    width: 100%;
+    padding:2px;
+    padding-top: 5px;
+    background: #EEEEEE;
+    border-bottom: 2px solid black;
+    margin-bottom: 4px;
+}
+
+table#moahead {
+    width: 100%;
+    heigth: 40px;
+}
+
+td#moahead {
+    height: 25px
+    text-weight: bold;
+    border: 0px;
+}
+
+td#moamenu {
+    height: 15px;
+    text-align: right;
+    vertical-align: bottom;
+    border: 0px;
+}
+
+#filesize {
+    text-align: right
+}*/
