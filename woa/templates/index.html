@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block inhead %}
+<script src="/static/moa.index.js"></script>
+{% endblock %}
+
+{% block body %}
+<h2>Index</h2>
+
+<table cellpadding="0" cellspacing="0" border="0"
+       class="table table-striped table-bordered" id="moaIndexTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>User</th>
+      <th>Group</th>
+      <th>Accessed</th>
+      <th>Created</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <!--{%- if parenturl  %}
+  <tr>
+    <td>
+      <a href="/{{ parenturl }}">../</a>
+    </td>
+    <td id='filesize'>
+      (dir)
+    </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  {%- endif %}-->
+
+  {%- for b in dirs %}
+  {%- set i = allfiles[b] %}
+  <tr>
+    <td>
+      <a href="/{{ localurl }}/{{ b }}">{{ b }}/</a>
+    </td>
+    <td id='filesize'>
+      (dir)
+    </td>
+    <td>
+      {{ i['user'] }}
+    </td>
+    <td>
+      {{ i['group'] }}
+    </td>
+    <td>
+      {{ i['atime'] }}
+    </td>
+    <td>
+      {{ i['ctime'] }}
+    </td>
+  </tr>
+  {%- endfor %}
+
+  {%- for b in files %}
+  {%- set i = allfiles[b] %}
+  <tr>
+    <td>
+      <a href="/{{ localurl }}/{{ b }}">{{ b }}</a>
+    </td>
+    <td id='filesize'>
+      {{ i['size'] }}
+    </td>
+    <td>
+      {{ i['user'] }}
+    </td>
+    <td>
+      {{ i['group'] }}
+    </td>
+    <td>
+      {{ i['atime'] }}
+    </td>
+    <td>
+      {{ i['ctime'] }}
+    </td>
+
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock body %}

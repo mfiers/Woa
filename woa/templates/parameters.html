@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block inhead %}
+<script>
+  $( document ).ready(function() {
+  $("#parameterTable").tablesorter();
+  });
+</script>
+{% endblock %}
+
+{% block body %}
+<h2>Parameters</h2>
+
+<table id="parameterTable">
+  <thead>
+    <tr>
+      <th>
+	Name
+      </th>
+      <th>
+	Value
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% set parlist=job.conf.keys()|sort %}
+    {% for p in parlist %}
+    <tr>
+      <td> {{ p }} </td>
+      <td><pre>{{ job.conf[p] }}</pre></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+
+{% endblock body %}
