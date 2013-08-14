@@ -1,0 +1,6 @@
+woa.egg-info
+*.pyc
+*~
+vendor/
+build/
+dist/
