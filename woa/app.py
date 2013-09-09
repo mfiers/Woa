@@ -84,6 +84,8 @@ def woa_index(pth):
         command = 'index'
 
     data['allcommands'] = METHODS
+    comsort = [x[1] for x in sorted([(METHODS[x]['order'], x) for x in METHODS])]
+    data['command_order'] = comsort
     data['command'] = command
 
     sys.stderr.write('.')
@@ -94,16 +96,17 @@ def woaOnlyWithMoaJob(f):
     METHODS[name]['mustHaveJob'] = True
     return f
 
-def woaFunc(name):
+def woaFunc(name, order=5):
     def decorator(f):
         l.debug('register func %s' % name)
         METHODS[name]['func'] = f
         METHODS[name]['mustHaveJob'] = False
+        METHODS[name]['order'] = order
         f._woa_method_name = name
         return f
     return decorator
 
-@woaFunc('index')
+@woaFunc('index', 0)
 def _index(data):
 
     data['allfiles'] = {}
@@ -136,18 +139,32 @@ def _index(data):
                      if os.path.isdir(os.path.join(fullpath, f))]
     return render_template('index.html', **data)
 
+
+@woaFunc('files')
+def _files(data):
+    basepath = data['base_path']
+    jobpath = data['fullpath']
+    data['fileset'] = sysConf.api.fileset_prepare_display(
+        data['job'], basepath, jobpath)
+    return render_template('files.html', **data)
+
+@woaOnlyWithMoaJob
+@woaFunc('template')
+def _template (data):
+    data['raw_template'] = data['job'].template.getRaw()
+    return render_template('template.html', **data)
+
 @woaOnlyWithMoaJob
 @woaFunc('parameters')
 def _parameters(data):
     return render_template('parameters.html', **data)
 
 @woaOnlyWithMoaJob
-@woaFunc('readme')
+@woaFunc('readme', 1)
 def _readme(data):
     data['readme'] = sysConf.api.get_readme(data['job'], format='html')
     print data['readme']
     return render_template('readme.html', **data)
-
 
 def run():
     host = '0.0.0.0'

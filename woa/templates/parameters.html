@@ -7,17 +7,11 @@
 {% endblock %}
 
 {% block body %}
-<h4>Parameters</h4>
-
 <div class="container">
-  <div class="make-switch switch-small " data-text-label="Private" id="showPrivateC">
-    <input type="checkbox" id="showPrivate">
-  </div>
-  <div class="make-switch switch-small " data-text-label="Inher." id="showInheritedC" >
-    <input type="checkbox" id="showInherited" >
-  </div>
-  <div class="make-switch switch-small " data-text-label="System" id="showSystemC">
-    <input type="checkbox" id="showSystem" >
+  <div class="btn-group btn-group-sm pull-right">
+    <button id="CB_showprivate" type="button" class="btn btn-default">private</button>
+    <button id="CB_showinherited" type="button" class="btn btn-default">inherited</button>
+    <button id="CB_showsystem" type="button" class="btn btn-default">system</button>
   </div>
 </div>
 
@@ -47,5 +41,4 @@
   {% endfor %}
   </tbody>
 </table>
-
 {% endblock body %}

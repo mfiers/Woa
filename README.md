@@ -4,12 +4,20 @@ Woa - A web interface for Moa!
 
     git clone git@github.com:mfiers/Woa.git
 
+## Install
+
+Preferably in a virtual environment (http://www.virtualenv.org/)
+
+    cd Woa
+    python setup.py install
+
+ This should install Moa as well (if it wasn't already)
+
 ## Download javascript dependencies
 
-	cd Woa
 	sh ./util/get_jslibs.sh
 
-Note - submodules would have been more elegant, but then you need node.js and a few other tools - found that too much. So, now this script downloads all dependencies.
+Note - submodules would have been more elegant, but then you'd need node.js and a few other tools - found that too much. So, now this script downloads all dependencies.
 
 ## Installation
 

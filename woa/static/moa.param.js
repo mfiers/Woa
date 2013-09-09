@@ -7,9 +7,9 @@ $(document).ready(function() {
     function( oSettings, aData, iDataIndex ) {
         var iColumn = 1;
 
-        var showPrivate = $('#showPrivate').is(":checked");
-        var showInherited = $('#showInherited').is(":checked");
-        var showSystem = $('#showSystem').is(":checked");
+        var showPrivate = $('#CB_showprivate').data("toggled");
+        var showInherited = $('#CB_showinherited').data("toggled");
+        var showSystem = $('#CB_showsystem').data("toggled");
 
         //console.log(showPrivate, showInherited, showSystem);
         var iPth = aData[iColumn];
@@ -34,16 +34,17 @@ $(document).ready(function() {
     }
   } );
 
-  $('#showPrivateC').on('switch-change', function (e, data) {
+  $('#CB_showprivate').click(function (e) {
+    moaToggleButton($(e.target));
     paramTable.fnDraw();
     });
-  $('#showSystemC').on('switch-change', function (e, data) {
+  $('#CB_showinherited').click(function (e) {
+    moaToggleButton($(e.target));
     paramTable.fnDraw();
     });
-  $('#showInheritedC').on('switch-change', function (e, data) {
+  $('#CB_showsystem').click(function (e) {
+    moaToggleButton($(e.target));
     paramTable.fnDraw();
     });
-
-
 });
 

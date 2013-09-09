@@ -1,32 +1,17 @@
 
 body {
-    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    padding-top: 40px; /* 60px to make the container go all the way to the bottom of the topbar */
 }
 
 .breadcrumb {
-    margin-top: -20px; /*make it align to the header bar*/
+    margin-top: 0; /*make it align to the header bar*/
+    margin-bottom: 0;
 }
 
 .dataTables_paginate {
     margin-top: 0;
 }
 
-#sidebarheader {
-    position: absolute;
-    top: 80px;
-    right: 100%;
-    white-space: nowrap;
-    -webkit-transform: rotate(270deg);
-    -webkit-transform-origin: right top;
-    -moz-transform: rotate(270deg);
-    -moz-transform-origin: right top;
-    -ms-transform: rotate(270deg);
-    -ms-transform-origin: right top;
-    -o-transform: rotate(270deg);
-    -o-transform-origin: right top;
-    transform: rotate(270deg);
-    transform-origin: right top;
-}
 /*pre {
     display: block;
     unicode-bidi: embed;

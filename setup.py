@@ -6,8 +6,8 @@ Woa setup script
 from setuptools import setup
 
 requires = [
+    'Moa>0.11.18',
     'flask',
-    'argparse'
 ]
 
 with open('VERSION') as F:

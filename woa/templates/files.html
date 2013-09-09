@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block inhead %}
+<script src="/static/moa.files.js"></script>
+{% endblock %}
+
+{% block body %}
+
+{% for top in fileset %}
+{% set topset=fileset[top] %}
+
+{% set maps=topset.get('maps', {}) %}
+{% set lifs=topset.get('lifs', {}) %}
+{% set fs=topset.get('fs', {}) %}
+{% set typ=topset.get('type', {}) %}
+
+{% macro showfile(relurl, filename, reldirurl, exists, dirurl, fullurl) -%}
+{% if exists %}
+<a href="{{ dirurl }}" class="label">{{reldirurl}}</a> /
+<a href="{{ fullurl }}" class="label">{{ filename }}</a>
+{% else %}
+<a href="{{ dirurl }}" class="label">{{reldirurl}}</a> /
+<span class="label label-warning">{{ filename }}</span>
+{% endif %}
+{%- endmacro %}
+
+<table class="table table-hover  table-striped">
+  <thead>
+  <tr>
+    <th></th>
+    <th>
+      {{ top }}
+    </th>
+    {% for m in maps %}
+    <th>
+      {{ m }}
+    </th>
+    {% endfor %}
+  </tr>
+  <tr>
+    <th>Category</th>
+    <td>{{ fs['category'] }}</td>
+    {% for m in maps %}
+    <td>
+      {{ maps.get(m).get('category') }}
+    </td>
+    {% endfor %}
+  </tr>
+   <tr  style="border-bottom: 2px solid black;">
+    <th>Type</th>
+    <td>{{ fs['type'] }}</td>
+    {% for m in maps %}
+    <td>
+      {{ maps.get(m).get('type') }}
+    </td>
+    {% endfor %}
+  </tr>
+</thead>
+<tbody>
+  {% for ifi in lifs %}
+  {% set i=loop.index0 %}
+    <tr>
+      <td>
+        {{ loop.index }}
+      </td>
+      <td>
+        {{ showfile(*ifi) }}
+      </td>
+      {% for m in maps %}
+      {% set mm=maps[m] %}
+      <td>
+        {{ showfile(*mm['lifs'][i]) }}
+      </td>
+      {% endfor %}
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+{% endfor %}
+{% endblock body %}

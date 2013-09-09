@@ -19,7 +19,7 @@ if [[ ! -f "jquery/jquery-1.10.2.min.js" ]]
 then
 	mkdir -f jquery
 	wget http://code.jquery.com/jquery-1.10.2.min.js
-	mv jquery-1.10.2.min.js jquery
+	mv jquery-1.10.2.min.js jquery/
 fi
 
 #Datatables
